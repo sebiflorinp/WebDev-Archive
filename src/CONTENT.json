@@ -1,0 +1,11 @@
+[
+  {
+    "route": "/",
+    "content": [
+      {
+            "title": "Home",
+            "text": "Welcome to the home page"
+      }
+    ]
+  }
+]

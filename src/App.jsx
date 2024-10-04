@@ -1,9 +1,11 @@
+import Header from "./components/Header.jsx";
+
 function App() {
-    return (
-        <div>
-            <p>Merge</p>
-        </div>
-    )
+  return (
+    <div className="lg:grid lg:grid-cols-5">
+      <Header />
+    </div>
+  );
 }
 
-export default App
+export default App;

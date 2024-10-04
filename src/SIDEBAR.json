@@ -1,0 +1,19 @@
+[
+  {
+    "type": "category",
+    "title": "React",
+    "content": [
+      {
+        "type": "category",
+        "title": "Guides",
+        "content": [
+          {
+            "type": "doc",
+            "title": "Context",
+            "path": "/react/guides/context"
+          }
+        ]
+      }
+    ]
+  }
+]
