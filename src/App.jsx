@@ -13,7 +13,7 @@ function App() {
     <div className="flex flex-col h-screen w-screen lg:grid lg:grid-cols-5">
       <Header />
       {isDropDownOpened && <MobileMenuBar />}
-      {location.pathname === "/" && <MainPage />}
+      {location.pathname === "/" && !isDropDownOpened && <MainPage />}
     </div>
   );
 }
