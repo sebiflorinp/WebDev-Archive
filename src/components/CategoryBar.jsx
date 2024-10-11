@@ -15,7 +15,6 @@ function CategoryBar({ category, depth }) {
   const handleClick = () => {
     setActive(!active);
   };
-  console.log(category.content);
   return (
     <div className="flex flex-col gap-2">
       <div

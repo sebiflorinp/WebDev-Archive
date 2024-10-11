@@ -9,7 +9,7 @@ function useDepth(depth) {
     case 1:
       properties.textSize = "text-4xl";
       properties.arrowSize = "h-8";
-      properties.rightPadding = "pr-0";
+      properties.rightPadding = "pr-0 pt-2";
       properties.leftPadding = "pl-0";
       break;
     case 2:

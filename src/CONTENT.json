@@ -48,6 +48,19 @@
         "type": "Code",
         "language": "csharp",
         "code": "int[] numbers = [1, 2, 3, 4, 5, 6];\n\nnumbers.Count(number => number % 2 == 0);\n// Expected Output: True"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "OrderBy, OrderByDescending"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for sorting a collection by a certain condition."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = [5, 2, 4, 4, 2, 1];\n\nint[] sortedNumbers = numbers.OrderBy(number => number).ToArray();\n// sortedNumbers = [1, 2, 2, 4, 4, 5];\n\nint[] sortedNumbers = numbers.OrderByDescending(number => number).ToArray();\n// sortedNumbers = [5, 4, 4, 2, 2, 1];"
       }
     ]
   }
