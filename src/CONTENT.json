@@ -1,10 +1,53 @@
 [
   {
-    "route": "/",
+    "route": "/dotnet/snippets/LINQ",
     "content": [
       {
-            "title": "Home",
-            "text": "Welcome to the home page"
+        "type": "Title",
+        "title": "LINQ"
+      },
+      {
+        "type": "Note",
+        "text": "LINQ (Language Integrated Query) is a useful feature of .NET which is used for querying collections and databases. \n\n It provides two syntaxes:\n  Query Syntax: Similar to SQL queries.\n Method Syntax Similar to method chaining in Javascript."
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "Also"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for checking if any object meets a certain condition."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = [1, 2, 3, 4, 5, 6];\n\nnumbers.Any(number => number == 2);\n// Expected Output: True"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "Any"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for checking if all objects meet a certain condition."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = [1, 2, 3, 4, 5, 6];\n\nnumbers.All(number => number % 2 == 0);\n// Expected Output: False"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "Count"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for checking how many objects meet a certain condition."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = [1, 2, 3, 4, 5, 6];\n\nnumbers.Count(number => number % 2 == 0);\n// Expected Output: True"
       }
     ]
   }

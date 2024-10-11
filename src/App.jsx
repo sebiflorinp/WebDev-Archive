@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AppStateContext } from "./contexts/AppStateContext.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import { useLocation } from "react-router-dom";
+import DocumentationPage from "./pages/DocumentationPage.jsx";
 
 function App() {
   const { isDropDownOpened } = useContext(AppStateContext);
@@ -14,6 +15,7 @@ function App() {
       <Header />
       {isDropDownOpened && <MobileMenuBar />}
       {location.pathname === "/" && !isDropDownOpened && <MainPage />}
+      {location.pathname !== "/" && !isDropDownOpened && <DocumentationPage />}
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import useIcons from "../hooks/useIcons.jsx";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import activeArrowDropped from "../assets/down-arrow-black.png";
 import inactiveArrowNotDropped from "../assets/up-arrow-gray.png";
 import useDepth from "../hooks/useDepth.jsx";
 import { Link, useLocation } from "react-router-dom";
+import { AppStateContext } from "../contexts/AppStateContext.jsx";
 
 function CategoryBar({ category, depth }) {
+  const { setIsDropDownOpened } = useContext(AppStateContext);
   const { getIcon } = useIcons();
   const activeLocation = useLocation().pathname;
-  console.log(activeLocation);
   const { properties } = useDepth(depth);
   const [active, setActive] = useState(false);
   const handleClick = () => {
@@ -37,7 +38,7 @@ function CategoryBar({ category, depth }) {
             </p>
           </div>
         ) : (
-          <Link to={category.path}>
+          <Link onClick={() => setIsDropDownOpened(false)} to={category.path}>
             <div className="flex justify-center items-center gap-2">
               <p
                 className={`${properties.textSize} ${activeLocation === category.path ? "text-black" : "text-gray-400"}`}

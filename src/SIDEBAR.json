@@ -29,5 +29,24 @@
         ]
       }
     ]
+  },
+  {
+    "type": "category",
+    "icon": "dotnet",
+    "title": ".NET",
+    "content": [
+      {
+        "type": "category",
+        "icon": "",
+        "title": "Snippets",
+        "content": [
+          {
+            "type": "doc",
+            "title": "LINQ",
+            "path": "/dotnet/snippets/LINQ"
+          }
+        ]
+      }
+    ]
   }
 ]
