@@ -1,5 +1,5 @@
 function Paragraph({ text }) {
-  return <p className="font-inter text-md">{text}</p>;
+  return <p className="font-inter text-xl">{text}</p>;
 }
 
 export default Paragraph;

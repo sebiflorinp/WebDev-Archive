@@ -4,7 +4,7 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 function Code({ code, language }) {
   return (
     <SyntaxHighlighter
-      className="text-sm"
+      className="text-sm lg:text-lg"
       style={atomOneDark}
       language={language}
     >

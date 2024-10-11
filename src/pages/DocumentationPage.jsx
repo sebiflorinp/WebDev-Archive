@@ -12,10 +12,10 @@ function DocumentationPage() {
   const handleDisplayOnPage = () =>
     setDisplayOnThisPage((prevState) => !prevState);
   return (
-    <div>
+    <div className="flex flex-col lg:col-start-2 lg:col-span-4 lg:pt-4 lg:mx-8">
       <div
         onClick={handleDisplayOnPage}
-        className="flex justify-end items-center gap-3 px-3 py-2 border-b-2 border-solid border-black"
+        className="flex justify-end items-center gap-3 px-3 py-2 border-b-2 border-solid border-black lg:hidden"
       >
         <p className="font-inter text-xl">On this page</p>
         {displayOnThisPage ? (

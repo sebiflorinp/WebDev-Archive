@@ -8,7 +8,7 @@
       },
       {
         "type": "Note",
-        "text": "LINQ (Language Integrated Query) is a useful feature of .NET which is used for querying collections and databases. \n\n It provides two syntaxes:\n  Query Syntax: Similar to SQL queries.\n Method Syntax Similar to method chaining in Javascript."
+        "text": "LINQ (Language Integrated Query) is a useful feature of .NET which is used for querying collections and databases. \nIt provides two syntaxes:\nQuery Syntax: Similar to SQL queries.\nMethod Syntax Similar to method chaining in Javascript."
       },
       {
         "type": "Subtitle",
