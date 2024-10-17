@@ -8,6 +8,9 @@ import CONTENT from "../CONTENT.json";
 function DocumentationPage() {
   const { displayContent } = useContent();
   const location = useLocation();
+  const contentToDisplay = CONTENT.filter((contentItem) => {
+    return contentItem.route === location.pathname;
+  });
   const [displayOnThisPage, setDisplayOnThisPage] = useState(false);
   const handleDisplayOnPage = () =>
     setDisplayOnThisPage((prevState) => !prevState);
@@ -24,7 +27,7 @@ function DocumentationPage() {
           <img className="max-h-4" src={downArrow} alt="downArrow" />
         )}
       </div>
-      <div>{displayContent(CONTENT[0].content)}</div>
+      <div>{displayContent(contentToDisplay[0].content)}</div>
     </div>
   );
 }

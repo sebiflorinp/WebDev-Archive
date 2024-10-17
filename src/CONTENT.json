@@ -205,7 +205,72 @@
         "language": "csharp",
         "code": "[ApiController]\n[Route(\"api/users\")]\npublic class UsersController: ControllerBase\n{\n    [HttpPost]\n    public ActionResult<User> AddUser(UserDTO userDTO)\n    {\n        // Add the new user if the given UserDTO is valid and return it otherwise return BadRequest.\n    }\n}\n// The controller responds to POST requests like:\n// POST /api/users        -> Calls AddUser with the given UserDTO and adds the new user if valid, otherwise returns BadRequest."
       }
-
+    ]
+  },
+  {
+    "route": "/dotnet/patterns/dtoConversion",
+    "content": [
+      {
+        "type": "Title",
+        "title": "Extension Methods for DTO Conversion"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for converting between an Entity and a DTO."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "public static class UserExtensions\n{\n    // Convert User entity to UserDto\n    public static UserDto ToDto(this User user)\n    {\n        return new UserDto\n        {\n            // Fields of the DTO\n        };\n    }\n\n    // Convert UserDto to User entity\n    public static User ToEntity(this UserDto userDto)\n    {\n        return new User\n        {\n            // Fields of the Entity\n        };\n    }\n}"
+      },
+      {
+        "type": "Note",
+        "text": "The conversion between a list of DTOs and Entities can be easily be done using the Select method from LINQ."
+      }
+    ]
+  },
+  {
+    "route": "/react/patterns/context",
+    "content": [
+      {
+        "type": "Title",
+        "title": "Context"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful organizing all the necessary code to create a context in one file."
+      },
+      {
+        "type": "Note",
+        "text": "The following explanations assume familiarity with the Context API.\nFor more information refer to: https://react.dev/learn/passing-data-deeply-with-context"
+      },
+      {
+        "type": "Paragraph",
+        "text": "The pattern starts by creating the context using the createContext hook, providing it with an object that contains default values. This enhances the intellisense when the useContext hook is used."
+      },
+      {
+        "type": "Code",
+        "language": "javascript",
+        "code": "export const UserContext = createContext({\n  username: '',\n  setUsername: () => {},\n});\n"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Then, a ContextProvider component is created which acts as a wrapper around any components that need access to the created context. It also manages its state internally."
+      },
+      {
+        "type": "Code",
+        "language": "javascript",
+        "code": "export default function UserContextProvider({children}) {\n    // The internal state which is managed using the useState hook.\n    const [name, setName] = useState()\n    const handleNameChange = name => setName(name)\n\n    // The contextValue required for the provider.\n    const contextValue = {\n        name,\n        setName\n    }\n\n    // The wrapper for the children components that require this context.\n    return (\n        <UserContext.Provider value={contextValue}>\n            {children}\n        </UserContext.Provider>\n    )\n}\n"
+      },
+      {
+        "type": "Note",
+        "text": "Don't forget to wrap the components that need access to the context with the ContextProvider component."
+      },
+      {
+        "type": "Code",
+        "language": "javascript",
+        "code": "createRoot(document.getElementById('root')).render(\n  <StrictMode>\n      <UserContextProvider>\n          <App />\n      </UserContextProvider>\n  </StrictMode>,\n)"
+      }
     ]
   }
 ]

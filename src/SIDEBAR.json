@@ -7,24 +7,12 @@
       {
         "type": "category",
         "icon": "",
-        "title": "Snippets",
-        "content": [
-          {
-            "type": "doc",
-            "title": "Something",
-            "path": "/react/snippets/something"
-          }
-        ]
-      },
-      {
-        "type": "category",
-        "icon": "",
-        "title": "Guides",
+        "title": "Patterns",
         "content": [
           {
             "type": "doc",
             "title": "Context",
-            "path": "/react/guides/context"
+            "path": "/react/patterns/context"
           }
         ]
       }
@@ -49,6 +37,18 @@
             "type": "doc",
             "title": "Controller Attributes",
             "path": "/dotnet/snippets/controllerAttributes"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "icon": "",
+        "title": "Patterns",
+        "content": [
+          {
+            "type": "doc",
+            "title": "Extension Methods for DTO Conversion",
+            "path": "/dotnet/patterns/dtoConversion"
           }
         ]
       }

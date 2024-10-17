@@ -40,7 +40,7 @@ function CategoryBar({ category, depth }) {
           <Link onClick={() => setIsDropDownOpened(false)} to={category.path}>
             <div className="flex justify-center items-center gap-2">
               <p
-                className={`${properties.textSize} ${activeLocation === category.path ? "text-black" : "text-gray-400"}`}
+                className={`${properties.textSize} ${activeLocation === category.path ? "text-black" : "text-gray-400"} max-w-60`}
               >
                 {category.title}
               </p>
