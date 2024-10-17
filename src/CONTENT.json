@@ -61,7 +61,151 @@
         "type": "Code",
         "language": "csharp",
         "code": "int[] numbers = [5, 2, 4, 4, 2, 1];\n\nint[] sortedNumbers = numbers.OrderBy(number => number).ToArray();\n// sortedNumbers = [1, 2, 2, 4, 4, 5];\n\nint[] sortedNumbers = numbers.OrderByDescending(number => number).ToArray();\n// sortedNumbers = [5, 4, 4, 2, 2, 1];"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "ThenBy, ThenByDescending"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for sorting a collection by a secondary condition (another field)."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "var people = new List<(string Name, int Age)>\n{\n    (\"John\", 25),\n    (\"Jane\", 22),\n    (\"John\", 22),\n    (\"Jane\", 30),\n    (\"John\", 30)\n};\n\n// Primary sort by Name, secondary sort by Age\nvar sortedPeople = people\n    .OrderBy(person => person.Name)    // Primary sort by Name\n    .ThenBy(person => person.Age)     // Secondary sort by Age\n    .ToList();\n\n// sortedPeople = [\n//   (\"Jane\", 22),\n//   (\"Jane\", 30),\n//   (\"John\", 25),\n//   (\"John\", 30),\n//   (\"John\", 22)\n// ]"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "Where"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for filtering a collection by a certain condition."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = { 1, 2, 3, 4, 5, 6 };\n\nint[] evenNumbers = numbers.Where(number => number % 2 == 0).ToArray();\n// evenNumbers = [2, 4, 6]"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "ToArray, ToList, ToDictionary"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for converting the result of a query into a certain collection (Array, List or Dictionary)\n"
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = { 1, 2, 3, 4, 5 };\n\nint[] numbersArray = numbers.ToArray();\n// numbersArray = [1, 2, 3, 4, 5]\n\nList<int> numbersList = numbers.ToList();\n// numbersList = [1, 2, 3, 4, 5]\n\nvar numberDictionary = numbers.ToDictionary(num => num, num => num * num);\n// numberDictionary = { [1, 1], [2, 4], [3, 9], [4, 16], [5, 25] }"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "First, FirstOrDefault"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for finding the first object which meets a certain condition.\n"
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = { 1, 2, 3, 4, 5, 6 };\n\nint firstEven = numbers.First(number => number % 2 == 0);\n// firstEven = 2\n\nint firstOddOrDefault = numbers.FirstOrDefault(number => number % 2 != 0);\n// firstOddOrDefault = 1"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "Last, LastOrDefault"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for finding the last object which meets a certain condition.\n"
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = { 1, 2, 3, 4, 5, 6 };\n\nint lastEven = numbers.Last(number => number % 2 == 0);\n// lastEven = 6\n\nint lastOddOrDefault = numbers.LastOrDefault(number => number % 2 != 0);\n// lastOddOrDefault = 5\n"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "ElementAt, ElementAtOrDefault"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Useful for finding the element which is at a certain index."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "int[] numbers = { 1, 2, 3, 4, 5, 6 };\n\nint thirdElement = numbers.ElementAt(2);\n// thirdElement = 3\n\nint outOfRangeElement = numbers.ElementAtOrDefault(10);\n// outOfRangeElement = 0 (default value for int)"
       }
+    ]
+  },
+  {
+    "route": "/dotnet/snippets/controllerAttributes",
+    "content": [
+      {
+        "type": "Title",
+        "title": "Controller Attributes"
+      },
+      {
+        "type": "Note",
+        "text": "This is not an exhaustive list of attributes, only those that are more commonly used."
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "[ApiController]"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Used to designate a certain class as an API controller."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "[ApiController]\npublic class UsersController : ControllerBase\n{\n    // Action methods here\n}\n// The UsersController class is recognized as an API controller."
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "[Route]"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Used to specify a base URL for all of the actions of a certain controller."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "[ApiController]\n[Route(\"api/users\")]\npublic class UsersController : ControllerBase\n{\n    // Action methods here\n}\n// Now all of the actions will have the following base URL: www.domain.com/api/users"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "[HttpGet]"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Used to indicate that an action should respond to GET requests."
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "[ApiController]\n[Route(\"api/users\")]\npublic class UsersController : ControllerBase\n{\n    [HttpGet]\n    public IActionResult GetAllUsers()\n    {\n        // Returns an OK status with a list of users\n    }\n\n    [HttpGet(\"{id}\")]\n    public IActionResult GetUserById(int id)\n    {\n        // Return OK and the user if found or NotFound otherwise.\n    }\n}\n// The controller responds to GET requests like:\n// GET /api/users         -> Calls GetAllUsers\n// GET /api/users/{id}    -> Calls GetUserById with the given id\n"
+      },
+      {
+        "type": "Subtitle",
+        "subtitle": "[HttpPost]"
+      },
+      {
+        "type": "Paragraph",
+        "text": "Used to indicate that an action should respond to POST requests"
+      },
+      {
+        "type": "Code",
+        "language": "csharp",
+        "code": "[ApiController]\n[Route(\"api/users\")]\npublic class UsersController: ControllerBase\n{\n    [HttpPost]\n    public ActionResult<User> AddUser(UserDTO userDTO)\n    {\n        // Add the new user if the given UserDTO is valid and return it otherwise return BadRequest.\n    }\n}\n// The controller responds to POST requests like:\n// POST /api/users        -> Calls AddUser with the given UserDTO and adds the new user if valid, otherwise returns BadRequest."
+      }
+
     ]
   }
 ]

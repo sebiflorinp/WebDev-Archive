@@ -7,7 +7,7 @@ import Title from "../components/Title.jsx";
 function useContent() {
   function displayContent(content) {
     return (
-      <div className="flex flex-col gap-4 pt-5 mx-5">
+      <div className="flex flex-col gap-3 pt-5 mx-5 pb-24">
         {content.map((contentItem) => {
           switch (contentItem.type) {
             case "Title":

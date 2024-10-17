@@ -44,6 +44,11 @@
             "type": "doc",
             "title": "LINQ",
             "path": "/dotnet/snippets/LINQ"
+          },
+          {
+            "type": "doc",
+            "title": "Controller Attributes",
+            "path": "/dotnet/snippets/controllerAttributes"
           }
         ]
       }
