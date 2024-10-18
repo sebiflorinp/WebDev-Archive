@@ -3,6 +3,7 @@ import Paragraph from "../components/Paragraph.jsx";
 import Note from "../components/Note.jsx";
 import Subtitle from "../components/Subtitle.jsx";
 import Title from "../components/Title.jsx";
+import CONTENT from "../CONTENT.json";
 
 function useContent() {
   function displayContent(content) {
@@ -28,8 +29,12 @@ function useContent() {
     );
   }
 
-  function getAllSections(content) {
-    let sections = content.content
+  function getAllSections(location) {
+    let sections = CONTENT.filter((contentItem) => {
+      return contentItem.route === location.pathname;
+    })[0];
+    console.log(sections.content);
+    sections = sections.content
       .filter(
         (contentItem) =>
           contentItem.type === "Subtitle" || contentItem.type === "Title",
