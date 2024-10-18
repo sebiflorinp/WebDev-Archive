@@ -7,7 +7,7 @@ import Title from "../components/Title.jsx";
 function useContent() {
   function displayContent(content) {
     return (
-      <div className="flex flex-col gap-3 pt-5 mx-5 pb-24">
+      <div className="flex flex-col gap-3 pt-7 mx-5 pb-24">
         {content.map((contentItem) => {
           switch (contentItem.type) {
             case "Title":
@@ -27,8 +27,22 @@ function useContent() {
       </div>
     );
   }
+
+  function getAllSections(content) {
+    let sections = content.content
+      .filter(
+        (contentItem) =>
+          contentItem.type === "Subtitle" || contentItem.type === "Title",
+      )
+      .map((contentItem, index) => {
+        return index === 0 ? contentItem.title : contentItem.subtitle;
+      });
+
+    return sections;
+  }
   return {
     displayContent,
+    getAllSections,
   };
 }
 

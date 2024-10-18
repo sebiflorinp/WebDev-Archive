@@ -11,7 +11,7 @@ function App() {
   const location = useLocation();
   console.log(location);
   return (
-    <div className="flex flex-col h-screen w-screen lg:grid lg:grid-cols-5 overscroll-none">
+    <div className="flex flex-col h-screen w-screen lg:grid lg:grid-cols-8 overscroll-none">
       <Header />
       {isDropDownOpened && <MobileMenuBar />}
       {location.pathname === "/" && !isDropDownOpened && <MainPage />}

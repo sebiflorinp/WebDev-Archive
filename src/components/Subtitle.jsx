@@ -1,6 +1,9 @@
 function Subtitle({ subtitle }) {
   return (
-    <p className="font-inter text-3xl pt-4 font-semibold lg:text-4xl">
+    <p
+      id={subtitle}
+      className="font-inter text-3xl pt-4 font-semibold lg:text-4xl"
+    >
       {subtitle}
     </p>
   );
