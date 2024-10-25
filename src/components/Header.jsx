@@ -18,6 +18,7 @@ function Header() {
     toggleOnThisPage,
     setToggleOnThisPage,
     handleToggleOnThisPage,
+    setIsDropDownOpened,
   } = useContext(AppStateContext);
   const [displayOnThisPage, setDisplayOnThisPage] = useState(false);
   const handleDisplayOnPage = () =>
@@ -29,7 +30,7 @@ function Header() {
     <div className="flex fixed flex-col lg:items-center w-screen lg:relative lg:top-0 lg:h-full lg:px-5 lg:pt-4 lg:col-start-1 lg:col-span-2 lg:w-full border-black lg:justify-start lg:gap-3 lg:flex-col lg:border-r-2 lg:border-b-0">
       <div className="lg:fixed">
         <div className="flex justify-between lg:border-b-0 items-center lg:justify-start border-b-2 border-black py-3 px-5 bg-white">
-          <Link to={"/"}>
+          <Link onClick={() => setIsDropDownOpened(false)} to={"/"}>
             <img
               className="h-16 lg:px-8 lg:h-24"
               src={Logo}
