@@ -8,8 +8,11 @@ import { AppStateContext } from "../contexts/AppStateContext.jsx";
 import { Link, useLocation } from "react-router-dom";
 import rightArrow from "../assets/right-arrow.png";
 import downArrow from "../assets/down-arrow-black.png";
+import downActiveArrow from "../assets/active-down-arrow.png";
 import useContent from "../hooks/useContent.jsx";
 import { Link as RSLink } from "react-scroll";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 function Header() {
   const {
@@ -37,15 +40,32 @@ function Header() {
               alt="Webarchive Logo"
             />
           </Link>
-          <img
+          <div
+            className="lg:hidden relative"
             onClick={() => {
               handleDropDownClick();
               setToggleOnThisPage(false);
             }}
-            className="h-12 lg:hidden"
-            src={isDropDownOpened ? Close : Menu}
-            alt="Menu"
-          />
+          >
+            <motion.img
+              animate={{
+                opacity: isDropDownOpened ? 1 : 0,
+                scale: isDropDownOpened ? 1 : 0,
+              }}
+              className="h-12 top-0 right-0"
+              src={Close}
+              alt="closedIcon"
+            />
+            <motion.img
+              animate={{
+                opacity: isDropDownOpened ? 0 : 1,
+                scale: isDropDownOpened ? 0 : 1,
+              }}
+              className="h-12 absolute top-0 right-0"
+              src={Menu}
+              alt="menuIcon"
+            />
+          </div>
         </div>
         {!isDropDownOpened && location.pathname !== "/" && (
           <div className="flex justify-end border-b-2 lg:hidden border-solid border-black bg-white lg:col-start-2 lg:col-span-4 lg:pt-4 lg:mx-8">
@@ -54,16 +74,23 @@ function Header() {
               className="flex justify-end items-center gap-3 px-3 py-2 border-solid border-black lg:hidden"
             >
               <p className="font-inter text-xl">On this page</p>
-              {toggleOnThisPage ? (
-                <img className="max-h-4" src={rightArrow} alt="rightArrow" />
-              ) : (
-                <img className="max-h-4" src={downArrow} alt="downArrow" />
-              )}
+              <motion.img
+                animate={{ rotate: toggleOnThisPage ? -90 : 0 }}
+                transition={{ duration: 0.25 }}
+                className="max-h-4"
+                src={downActiveArrow}
+                alt="rightArrow"
+              />
             </div>
           </div>
         )}
         {toggleOnThisPage && (
-          <div className="bg-white mt-4 mx-4 p-3 rounded-2xl text-2xl border-2 border-black lg:hidden">
+          <motion.div
+            className="bg-white mt-4 mx-4 p-3 rounded-2xl text-2xl border-2 border-black lg:hidden"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 10, opacity: 1 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+          >
             {getAllSections(location).map((section) => (
               <div className="p-0.5" key={section}>
                 <RSLink
@@ -76,7 +103,7 @@ function Header() {
                 </RSLink>
               </div>
             ))}
-          </div>
+          </motion.div>
         )}
         <div className="hidden lg:block w-full">
           {SIDEBARCONTENT.map((category) => {
