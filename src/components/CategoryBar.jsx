@@ -19,7 +19,7 @@ function CategoryBar({ category, depth }) {
     <div className="flex flex-col gap-2">
       <div
         onClick={handleClick}
-        className={`flex justify-between items-center ${properties.rightPadding} ${properties.leftPadding}`}
+        className={`flex justify-between items-center font-inter ${properties.rightPadding} ${properties.leftPadding}`}
       >
         {category.type === "category" ? (
           <div className="flex justify-center items-center gap-2">

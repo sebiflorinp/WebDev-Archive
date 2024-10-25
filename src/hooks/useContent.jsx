@@ -42,7 +42,6 @@ function useContent() {
       .map((contentItem, index) => {
         return index === 0 ? contentItem.title : contentItem.subtitle;
       });
-
     return sections;
   }
   return {
